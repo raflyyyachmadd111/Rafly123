@@ -10,41 +10,45 @@
 	<!-- Custom styles -->
 	<style>
 		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
 			background-color: #f8f9fa;
 		}
 
-		.register-container {
-			margin-top: 5%;
+		.card {
+			width: 300px;
 		}
 	</style>
 </head>
 
 <body>
 
-	<div class="container register-container">
-		<div class="row justify-content-center">
-			<div class="col-md-6 col-lg-4">
-				<div class="card">
-					<div class="card-body">
-						<h3 class="text-center">Register</h3>
-						<form>
-							<div class="form-group">
-								<label for="username">Username:</label>
-								<input type="text" class="form-control" id="username" placeholder="Enter your username" required>
-							</div>
-							<div class="form-group">
-								<label for="email">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-							</div>
-							<div class="form-group">
-								<label for="password">Password:</label>
-								<input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Register</button>
-						</form>
-						<p class="text-center mt-3">Already have an account? <a href="<?= base_url('login') ?>">Login here</a></p>
-					</div>
+	<div class="card">
+		<div class="card-body">
+			<h3 class="text-center mb-4">Register</h3>
+
+			<!-- Register Form -->
+			<form method="post" action="<?= base_url('auth/register'); ?>">
+				<div class="form-group">
+					<label for="registerUsername">Username:</label>
+					<input type="text" class="form-control" name="username" placeholder="Enter your username" required>
 				</div>
+				<div class="form-group">
+					<label for="registerEmail">Email:</label>
+					<input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+				</div>
+				<div class="form-group">
+					<label for="registerPassword">Password:</label>
+					<input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+				</div>
+				<button type="submit" class="btn btn-success btn-block">Register</button>
+			</form>
+
+			<div class="text-center mt-3">
+				<p>Already have an account? <a href="<?= base_url('login') ?>">Login here</a></p>
 			</div>
 		</div>
 	</div>

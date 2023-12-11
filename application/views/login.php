@@ -10,37 +10,49 @@
 	<!-- Custom styles -->
 	<style>
 		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
 			background-color: #f8f9fa;
 		}
 
-		.login-container {
-			margin-top: 5%;
+		.card {
+			width: 300px;
 		}
 	</style>
 </head>
 
 <body>
 
-	<div class="container login-container">
-		<div class="row justify-content-center">
-			<div class="col-md-6 col-lg-4">
-				<div class="card">
-					<div class="card-body">
-						<h3 class="text-center">Login</h3>
-						<form>
-							<div class="form-group">
-								<label for="username">Username:</label>
-								<input type="text" class="form-control" id="username" placeholder="Enter your username" required>
-							</div>
-							<div class="form-group">
-								<label for="password">Password:</label>
-								<input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-							</div>
-							<button type="submit" class="btn btn-primary btn-block">Login</button>
-						</form>
-						<p class="text-center mt-3">Don't have an account? <a href="<?= base_url('register'); ?>">Register here</a></p>
-					</div>
+	<div class="card">
+		<div class="card-body">
+			<h3 class="text-center mb-4">Login</h3>
+
+			<!-- Login Form -->
+			<?php
+			if (!empty($error_message)) {
+				echo '<p style="color: red; text-align: center;">' . $error_message . '</p>';
+			}
+			if (!empty($success_message)) {
+				echo '<p style="color: green; text-align: center;">' . $success_message . '</p>';
+			}
+			?>
+			<form method="post" action="<?= base_url('auth/login'); ?>">
+				<div class="form-group">
+					<label for="loginUsername">Username:</label>
+					<input type="text" class="form-control" name="username" placeholder="Enter your username" required>
 				</div>
+				<div class="form-group">
+					<label for="loginPassword">Password:</label>
+					<input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Login</button>
+			</form>
+
+			<div class="text-center mt-3">
+				<p>Don't have an account? <a href="<?= base_url('register') ?>">Register here</a></p>
 			</div>
 		</div>
 	</div>
