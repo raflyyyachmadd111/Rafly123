@@ -8,7 +8,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 	<!-- Bootstrap Icons -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.0/font/bootstrap-icons.css">
+	<!-- Option 1: Include in HTML -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<!-- Custom styles -->
 	<style>
 		body {
@@ -87,19 +88,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 
-	<!-- Custom script for sidebar toggle -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var sidebar = document.getElementById('sidebar');
-			var content = document.getElementById('content');
-			var sidebarCollapse = document.getElementById('sidebarCollapse');
-
-			sidebarCollapse.addEventListener('click', function() {
-				sidebar.classList.toggle('active');
-				content.classList.toggle('active');
-			});
-		});
-	</script>
 
 </body>
 
