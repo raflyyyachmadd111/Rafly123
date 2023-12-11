@@ -18,8 +18,8 @@ class Auth extends CI_Controller
 			];
 
 			$this->user_model->create_user($data);
-			$data['success_message'] = 'Akun berhasil di daftarkan. Silahkan Login.';
-			$this->load->view('login', $data);
+			$this->session->set_flashdata('success_message', 'Akun berhasil di daftarkan. Silahkan Login.');
+			redirect('/');
 		} else {
 			$this->load->view('register');
 		}
@@ -28,12 +28,9 @@ class Auth extends CI_Controller
 
 	public function login()
 	{
-		$data['error_message'] = '';
-
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
-
 			$user = $this->user_model->get_user_by_username($username);
 
 			if ($user) {
@@ -42,19 +39,19 @@ class Auth extends CI_Controller
 					$this->session->set_userdata('user_id', $user['id']);
 					redirect('dashboard'); // Redirect to the dashboard or another page upon successful login
 				} else {
-					$data['error_message'] = 'Invalid password';
+					$this->session->set_flashdata('error_message', 'Password salah.');
 				}
 			} else {
-				$data['error_message'] = 'User not found';
+				$this->session->set_flashdata('error_message', 'Pengguna tidak ditemukan.');
 			}
 		}
-
-		$this->load->view('login', $data);
+		redirect('/');
 	}
 
 	public function logout()
 	{
 		$this->session->unset_userdata('user_id');
-		redirect('auth/login');
+		$this->session->sess_destroy();
+		redirect('/');
 	}
 }

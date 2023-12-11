@@ -32,11 +32,11 @@
 
 			<!-- Login Form -->
 			<?php
-			if (!empty($error_message)) {
-				echo '<p style="color: red; text-align: center;">' . $error_message . '</p>';
+			if ($this->session->flashdata('error_message')) {
+				echo '<p style="color: red; text-align: center;">' . $this->session->flashdata('error_message') . '</p>';
 			}
-			if (!empty($success_message)) {
-				echo '<p style="color: green; text-align: center;">' . $success_message . '</p>';
+			if ($this->session->flashdata('success_message')) {
+				echo '<p style="color: green; text-align: center;">' . $this->session->flashdata('success_message')  . '</p>';
 			}
 			?>
 			<form method="post" action="<?= base_url('auth/login'); ?>">
