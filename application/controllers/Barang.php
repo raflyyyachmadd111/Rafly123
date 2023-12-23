@@ -43,4 +43,20 @@ class Barang extends CI_Controller
         // Redirect kembali ke halaman dashboard
         redirect('dashboard');
     }
+
+    public function tambah()
+    {
+        $this->load->view('admin/tambah_barang');
+    }
+
+    public function insert()
+    {
+        $data = array(
+            'nama_barang' => $this->input->post('nama_barang'),
+            'harga_barang' => $this->input->post('harga_barang'),
+            'jumlah_barang' => $this->input->post('jumlah_barang')
+        );
+        $this->Barang_model->insert_barang($data);
+        redirect('dashboard');
+    }
 }

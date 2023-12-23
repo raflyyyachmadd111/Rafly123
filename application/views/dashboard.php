@@ -77,6 +77,10 @@
 	<div id="content">
 		<div class="container">
 			<h2 class="text-center">Daftar Barang</h2>
+			<!-- Tombol Tambah Barang -->
+			<div class="container my-4">
+				<a href="<?= base_url('barang/tambah'); ?>" class="btn btn-success">Tambah Barang</a>
+			</div>
 			<table class="table">
 				<thead>
 					<tr>
