@@ -11,10 +11,14 @@ class Dashboard extends CI_Controller
         //     $this->session->set_flashdata('error_massage', 'Silahkan Login terlebih dahulu');
         //     redirect('/');
         // }
+        $this->load->model('Barang_model');
     }
+
 
     public function index()
     {
-        $this->load->view('dashboard');
+        $data['barang'] = $this->Barang_model->get_barang();
+
+        $this->load->view('dashboard', $data);
     }
 }
