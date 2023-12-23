@@ -30,11 +30,6 @@
 			z-index: 1;
 		}
 
-		#content {
-			margin-left: 250px;
-			padding: 20px;
-		}
-
 		.navbar-brand {
 			font-size: 1.5rem;
 			font-weight: bold;
@@ -80,8 +75,37 @@
 	</nav>
 
 	<div id="content">
-		<h2>Admin Dashboard</h2>
-		<p>Welcome to the admin panel. This is the main content area.</p>
+		<div class="container">
+			<h2 class="text-center">Daftar Barang</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Nama Barang</th>
+						<th scope="col">Harga Barang</th>
+						<th scope="col">Stok</th>
+						<th scope="col">Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<?php foreach ($barang as $item) : ?>
+						<tr>
+							<th scope="row"><?= $item->id; ?></th>
+							<td><?= $item->nama_barang; ?></td>
+							<td><?= $item->harga_barang; ?></td>
+							<td><?= $item->jumlah_barang; ?></td>
+							<td>
+								<!-- Tambahkan tombol atau tautan untuk aksi di sini -->
+								<a href="<?= base_url('barang/edit/' . $item->id); ?>" class="btn btn-warning btn-sm">Edit</a>
+								<a href="<?= base_url('barang/delete/' . $item->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">Hapus</a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 	<!-- Bootstrap JS and Popper.js -->
