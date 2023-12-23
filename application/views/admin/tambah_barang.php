@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
+    <title>Tambah Barang</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -40,38 +40,26 @@
     </nav>
 
     <div class="container mt-4">
-        <div class="container">
-            <h2 class="text-center">Daftar Barang</h2>
-            <a href="<?= base_url('barang/tambah'); ?>" class="btn btn-success">Tambah Barang</a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nama Barang</th>
-                        <th scope="col">Harga Barang </th>
-                        <th scope="col">Stok</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <h2 class="text-center">Tambah Barang</h2>
 
-                    <?php foreach ($barang as $item) : ?>
-                        <tr>
-                            <th scope="row"><?= $item->id; ?></th>
-                            <td><?= $item->nama_barang; ?></td>
-                            <td><?= $item->harga_barang; ?></td>
-                            <td><?= $item->jumlah_barang; ?></td>
-                            <td>
-                                <a href="<?= base_url('barang/edit/' . $item->id); ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="<?= base_url('barang/delete/' . $item->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm
-                                ('Apakah anda yakin ingin menghapus barang ini')">Hapus</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+        <form method="post" action="<?= base_url('barang/insert'); ?>">
+            <div class="mb-3">
+                <label for="nama_barang" class="form-label" Nama Barang></label>
+                <input type="text" class="form-control" name="nama_barang" required>
+            </div>
+            <div class="mb-3">
+                <label for="harga_barang" class="form-label" Harga Barang></label>
+                <input type="text" class="form-control" name="harga_barang" required>
+            </div>
+            <div class="mb-3">
+                <label for="jumlah_barang" class="form-label" Jumlah Barang></label>
+                <input type="text" class="form-control" name="jumlah_barang" required>
+            </div>
+            <a href="<?= base_url('dashboard'); ?>" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-primary">Tambah Barang</button>
+        </form>
 
-                </tbody>
 
-        </div>
     </div>
 
     <!-- Bootstrap JS, Popper.js, and jQuery (required for Bootstrap) -->

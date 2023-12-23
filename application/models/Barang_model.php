@@ -30,4 +30,10 @@ class Barang_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('barang', $data);
     }
+
+    public function insert_barang($data)
+    {
+
+        $this->db->insert('barang', $data);
+    }
 }
