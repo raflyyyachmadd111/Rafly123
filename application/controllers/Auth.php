@@ -11,10 +11,11 @@ class Auth extends CI_Controller
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $password = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
             $data = [
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
-                'password' => password_hash($this->input->post('passowrd'), PASSWORD_BCRYPT),
+                'password' => $password
             ];
 
             $this->user_model->create_user($data);
